@@ -1,0 +1,77 @@
+#home_layout {
+  display: flex;
+  height: 100%; }
+  #home_layout #user_friends {
+    width: 30%;
+    padding: 10px 10px;
+    border-left: 1px solid lightgray;
+    height: 100%; }
+  #home_layout #feeds {
+    width: 70%;
+    padding: 10px; }
+    #home_layout #feeds #feed_post {
+      display: flex;
+      flex-direction: column;
+      margin: 0 1rem;
+      align-items: center;
+      width: 45%;
+      background-color: white;
+      border-radius: 10px; }
+      #home_layout #feeds #feed_post #add_comment {
+        border: 1px solid #ad9e9e;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        justify-content: center;
+        background: #e1e1fa;
+        border-radius: 1rem; }
+        #home_layout #feeds #feed_post #add_comment textarea {
+          border: none;
+          border-bottom: 1px solid lightgray;
+          color: black; }
+        #home_layout #feeds #feed_post #add_comment input[type="submit"] {
+          background-color: indigo;
+          color: white;
+          padding: 0.2rem 0.4rem;
+          outline: none;
+          border: none;
+          cursor: pointer; }
+      #home_layout #feeds #feed_post .posts {
+        width: 100%; }
+        #home_layout #feeds #feed_post .posts .post_container {
+          border: 2px solid;
+          margin: 5px 5px;
+          padding: 0 1rem;
+          background-color: #cadce2; }
+          #home_layout #feeds #feed_post .posts .post_container .post p:nth-child(2) {
+            background: bisque;
+            width: fit-content;
+            border: 1px solid;
+            margin: 5px 0;
+            padding: 2px 5px; }
+          #home_layout #feeds #feed_post .posts .post_container .comments form {
+            display: flex;
+            justify-content: center; }
+            #home_layout #feeds #feed_post .posts .post_container .comments form input[type="text"] {
+              border: none;
+              background-color: transparent;
+              border-bottom: 1px solid grey;
+              outline: none; }
+            #home_layout #feeds #feed_post .posts .post_container .comments form input[type="submit"] {
+              background-color: indigo;
+              color: white;
+              padding: 0.2rem 0.4rem;
+              outline: none;
+              border: none;
+              cursor: pointer; }
+          #home_layout #feeds #feed_post .posts .post_container .post_comments_list #post_comments li {
+            border: 2px solid;
+            background-color: white;
+            margin: 1rem 0;
+            list-style: none; }
+            #home_layout #feeds #feed_post .posts .post_container .post_comments_list #post_comments li p:nth-child(1) {
+              color: blue; }
+            #home_layout #feeds #feed_post .posts .post_container .post_comments_list #post_comments li p:nth-child(2) {
+              background-color: #d3d3d9;
+              margin-top: 5px;
+              padding-left: 1rem; }

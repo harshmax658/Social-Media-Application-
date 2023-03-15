@@ -1,0 +1,60 @@
+.chatBox {
+  border: 2px solid red;
+  height: 16rem;
+  width: 15rem;
+  position: fixed;
+  right: 30%;
+  bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  background-color: white; }
+  .chatBox #chatName {
+    width: 100%;
+    background-color: black;
+    color: white;
+    text-align: center; }
+  .chatBox #chat_message_list {
+    list-style: none;
+    overflow: auto;
+    height: 90%;
+    margin: 2px 1px;
+    /* Track */
+    /* Handle */
+    /* Handle on hover */ }
+    .chatBox #chat_message_list::-webkit-scrollbar {
+      width: 4px; }
+    .chatBox #chat_message_list::-webkit-scrollbar-track {
+      background: #f1f1f1; }
+    .chatBox #chat_message_list::-webkit-scrollbar-thumb {
+      background: #888; }
+    .chatBox #chat_message_list::-webkit-scrollbar-thumb:hover {
+      background: #555; }
+    .chatBox #chat_message_list .other_message {
+      text-align: left;
+      padding: 5px; }
+      .chatBox #chat_message_list .other_message span {
+        background-color: #f7a883;
+        display: inline-block;
+        padding: 15px; }
+    .chatBox #chat_message_list .self_message {
+      text-align: right;
+      padding: 5px; }
+      .chatBox #chat_message_list .self_message span {
+        background-color: #c6c6f0;
+        display: inline-block;
+        padding: 15px; }
+  .chatBox #chat_message_input_container {
+    height: 10%;
+    display: flex; }
+    .chatBox #chat_message_input_container #chat_message_input {
+      width: 80%;
+      padding: 0 0.5rem;
+      border: 1px solid lightblue; }
+    .chatBox #chat_message_input_container #send_message {
+      color: white;
+      background-color: green;
+      width: 20%;
+      padding: 0 0.1rem;
+      outline: none;
+      border: none;
+      cursor: pointer; }

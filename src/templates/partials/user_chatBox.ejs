@@ -1,0 +1,17 @@
+<%if(locals.user){%>
+<link rel="stylesheet" href="/css/chatbox.css" />
+<div class="chatBox">
+  <p id="chatName"></p>
+  <ul id="chat_message_list"></ul>
+
+  <form id="chat_message_input_container">
+    <input
+      id="chat_message_input"
+      name="message"
+      autocomplete="off"
+      placeholder="Type message here"
+    />
+    <button type="submit" id="send_message">Send</button>
+  </form>
+</div>
+<%}%>

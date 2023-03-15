@@ -1,0 +1,25 @@
+#header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  padding: 0 20px;
+  background-color: #3578e5;
+  padding: 1rem 1rem;
+  font-size: 1.4rem;
+  font-weight: bolder;
+  color: white; }
+  #header .menu ul {
+    display: flex; }
+    #header .menu ul li:nth-child(1) {
+      text-transform: capitalize; }
+    #header .menu ul li {
+      list-style: none;
+      margin: 0 8px; }
+  #header a {
+    text-decoration: none;
+    color: white; }
+
+.liked {
+  color: red; }

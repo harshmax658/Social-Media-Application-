@@ -1,0 +1,54 @@
+<link rel="stylesheet" href="/css/home_page.css" />
+<link rel="stylesheet" href="/css/chatbox.css" />
+
+<section id="home_layout">
+  <%-include('../partials/post_feeds')%>
+
+  <section id="users_container">
+    <div class="users">
+      <%for(u of user_list) {%>
+      <p><a href="/users/profile/<%=u.id%>"><%=u.name%></a></p>
+      <%}%>
+    </div>
+    <div class="friends">
+      <p>Friends</p>
+      <hr />
+      <%for(friend of friends) {%>
+      <p>
+        <%if(friend.userId.id != locals.user.id){%>
+
+        <a href="/users/profile/<%=friend.userId.id%>"
+          ><%=friend.userId.name%></a
+        >
+
+        <span class="message" id="<%=friend.userId.id%>">Message</span>
+        <%}else{%>
+
+        <a href="/users/profile/<%=friend.friendId.id%>"
+          ><%=friend.friendId.name%></a
+        >
+        <span class="message" id="<%=friend.friendId.id%>">Message</span>
+
+        <%}%>
+      </p>
+      <%}%>
+    </div>
+  </section>
+  <div id="chat"></div>
+</section>
+
+<%if(locals.user){%>
+<script src="/js/home_posts.js"></script>
+<script src="/js/comment_post.js"></script>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/chat_engine.js"></script>
+<script src="/js/chatBox.js"></script>
+<script>
+  currentUser("<%=locals.user._id%>");
+  // new ChatEngine("chatBox", "<%=locals.user._id%>");
+</script>
+
+<%}%>
+<!-- < src="h   ttps://cdnjs.c   loudflare.com/ajax/libs/socket.io/4.2.0/socket.io.js"></script> -->
+<!--  -->

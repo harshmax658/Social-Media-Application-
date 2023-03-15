@@ -1,0 +1,81 @@
+<link rel="stylesheet" href="/css/user_profile_style.css" />
+
+<%if(locals.user && locals.user.id == profile.id){%>
+<div class="image_wall">
+  <div class="cover_image">
+    <img src="" alt="coverimage" />
+  </div>
+  <div class="profile_image">
+    <img src="<%=profile.avatar%>" alt="<%=profile.name%>" width="100" />
+  </div>
+</div>
+
+<h2>Update Your Profile</h2>
+<form
+  action="/users/update/<%=profile.id%>"
+  enctype="multipart/form-data"
+  method="post"
+>
+  <input type="text" name="name" value="<%= profile.name%>" />
+  <input type="email" name="email" value="<%= profile.email%>" />
+  <label for="avatar" class="upload_file"> Upload Picture </label>
+  <input type="file" name="avatar" id="avatar" placeholder="Profile Picture" />
+
+  <label for="wall" class="upload_file"> wall Picture </label>
+  <input type="file" name="wall" id="wall" placeholder="wall Picture" />
+  <input type="submit" value="Update" />
+  <img id="preview" width="144" />
+</form>
+
+<section id="profileFeed">
+  <div id="others">Others</div>
+  <div id="profile_posts"><%-include('../partials/post_feeds')%></div>
+</section>
+<%}else{%>
+<div class="image_wall">
+  <div class="cover_image">
+    <img src="" alt="coverimage" />
+  </div>
+  <div class="profile_image">
+    <img src="<%=profile.avatar%>" alt="<%=profile.name%>" width="100" />
+  </div>
+</div>
+<%if(locals.user){%>
+<%let isFriend = false%>
+<!--  -->
+<%for(friend of profile.Friendship){%>
+<!--  -->
+<%if(locals.user.id == friend.userId || locals.user.id ==friend.friendId){%>
+  <!--  -->
+  <a href="/friendship/toggle/?id=<%=profile.id%>" id="friend_Request_Handler" 
+    >Friends ✔
+    <!--  -->
+  </a>
+<%isFriend = true%>
+
+  <%break%>
+
+  <%}%>
+  <!--  -->
+  <%}%>
+  <!--  -->
+  <%if(!isFriend){%>
+  <a href="/friendship/toggle/?id=<%=profile.id%>" id="friend_Request_Handler"
+    >Sent request</a>
+  <%}%>
+  <!--  -->
+  
+  <%}%>
+  <section id="profileFeed">
+    <div id="others">Others</div>
+    <div id="profile_posts"><%-include('../partials/post_feeds')%></div>
+  </section>
+  <%}%> <%if(locals.user){%>
+  <script src="/js/home_posts.js"></script>
+  <script src="/js/comment_post.js"></script>
+  <%if(locals.user && locals.user.id == profile.id){%>
+  <script src="/js/profileData.js"></script>
+  <%}%>
+  <script src="/js/friendship.js"></script>
+  <%}%>
+</a>

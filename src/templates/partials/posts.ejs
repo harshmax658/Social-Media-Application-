@@ -1,0 +1,62 @@
+<div class="post_container post-<%=data._id%>">
+  <div class="post">
+    <p>
+      <a href="http://localhost:8000/users/profile/<%= data.user.id%>"
+        ><%= data.user.name%></a
+      >
+      <span>▶Post</span>
+
+      <%if(locals.user && data.user.id == locals.user.id){ %>
+      <span>
+        <a class="delete-post-button" href="/post/destroy/<%=data.id%>">
+          Delete</a
+        >
+      </span>
+      <%}%>
+    </p>
+    <p><%=data.content%></p>
+    <div class="reactBtn">
+      <%if(locals.user){%>
+      <a
+        id="likesCounter"
+        likes="<%=data.likes.length%>"
+        class="
+          like_btn
+          <%for(likes
+          of
+          data.likes){%>
+          <%if(locals.user.id
+          ==
+          likes.user){%>
+          liked
+          <%}%> <%}%>
+        "
+        href="/likes/toggle/?id=<%=data._id%>&type=Post"
+        ><%=data.likes.length%> Likes</a
+      >
+
+      <!-- / -->
+      <%}else{%> <%=data.likes.length%> Likes <%}%>
+    </div>
+  </div>
+  <% if (locals.user){%>
+  <div class="comments">
+    <form
+      class="add-comment"
+      id="comment-<%=data._id%>"
+      action="/comments/add-comment"
+      method="post"
+    >
+      <input
+        type="text"
+        name="content"
+        required
+        placeholder="Add Comment....."
+      />
+      <input type="hidden" name="post" value="<%=data.id%>" />
+
+      <input type="submit" value="add comment" />
+    </form>
+  </div>
+  <%}%> <%-include('./users_comments')%>
+</div>

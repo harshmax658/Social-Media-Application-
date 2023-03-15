@@ -1,0 +1,8 @@
+#react_btn {
+  border: 1px solid; }
+  #react_btn .like_btn {
+    color: #201f1f;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 1rem; }

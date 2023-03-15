@@ -1,0 +1,23 @@
+<div id="feeds">
+  <h1><%=title%></h1>
+  <section id="feed_post">
+    <h4>Post</h4>
+    <% if(locals.user){%>
+    <form action="/post/create-post" method="POST" id="add_post">
+      <textarea
+        name="content"
+        cols="30"
+        rows="2"
+        placeholder="add comments here....."
+        required
+      ></textarea>
+      <input type="submit" value="Post" />
+    </form>
+    <% }%>
+    <hr />
+    <section id="posts">
+      <% for(data of userPosts) {%> <%-include('./posts')%> <%}%>
+    </section>
+  </section>
+</div>
+<script src="/js/toggleLikes.js"></script>

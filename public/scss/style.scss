@@ -1,0 +1,62 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }
+  @-ms-keyframes #{$animation-name} {
+    @content;
+  }
+  @-o-keyframes #{$animation-name} {
+    @content;
+  }
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+  -moz-animation: #{$str};
+  -ms-animation: #{$str};
+  -o-animation: #{$str};
+  animation: #{$str};
+}
+@include keyframes(slide-down) {
+  0% {
+    top: -20%;
+  }
+  100% {
+    top: 10%;
+  }
+}
+body {
+  background-color: rgb(236, 245, 255);
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  .flashMessage {
+    font-size: 1.39rem;
+    border: 1px solid grey;
+    height: 40px;
+    min-width: 129px;
+    width: auto;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 10vh;
+    left: 45%;
+    background-color: grey;
+    color: white;
+    font-weight: bolder;
+    @include animation("slide-down 1s ease-out");
+  }
+}

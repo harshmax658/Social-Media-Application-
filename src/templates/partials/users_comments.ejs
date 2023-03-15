@@ -1,0 +1,44 @@
+<div class="post_comments_list">
+  <ul class="post_comments" id="<%=data.id%>">
+    <%for(data of data.comments){%>
+    <li class="comment-<%=data._id%>">
+      <p>
+        <a href="http://localhost:8000/users/profile/<%= data.user.id%>"
+          ><%= data.user.name%></a
+        >⏬
+        <span>
+          <%if(locals.user && data.user.id === locals.user.id){ %>
+
+          <a class="delete-comment" href="/comments/delete-comment/<%=data.id%>"
+            >delete</a
+          >
+          <%}%>
+        </span>
+      </p>
+
+      <p><%=data.content%></p>
+      <div class="reactBtn">
+        <%if(locals.user){%>
+        <a
+          likes="<%=data.likes.length%>"
+          class="
+            like_btn
+            <%for(likes
+            of
+            data.likes){%>
+            <%if(locals.user.id
+            ==
+            likes.user){%>
+            liked
+            <%}%> <%}%>
+            x
+          "
+          href="/likes/toggle/?id=<%=data._id%>&type=Comment"
+          ><%=data.likes.length%> Likes</a
+        >
+        <%}else{%> <%=data.likes.length%> Likes <%}%>
+      </div>
+    </li>
+    <%}%>
+  </ul>
+</div>
